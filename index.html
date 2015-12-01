@@ -1,0 +1,283 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app='app'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../favicon.png" type="image/png" rel="shortcut icon" />
+<meta name="description" content="Indexed and searchable match videos for UNIEL and UNIELST">
+<meta name="keywords" content="UNIEL, UNIST, UNIELST, Under Night, Under Night In Birth, Exe Late, [st]">
+<style>
+     @font-face { font-family: Gate; src: url('NimbusSansBold.ttf'); } 
+    nav fieldset p::first-letter{
+        color:red;
+    }
+   nav {
+        text-align: center;
+        background-color:#0d0d0d;
+        overflow: auto;
+        word-wrap: break-word;
+        background: url('bg.png');
+    }
+    nav option {
+        color:white;
+        background-color: black;
+        font-size:16pt;
+        font-family: 'Arial';
+    }
+    nav select {
+        color:white;
+        background-color: black;
+        font-size:16pt;
+        font-family: 'Arial';
+        border:0px;
+    }
+    nav select:first-letter{
+        color:red;
+    }
+    nav input::first-letter {
+        color:red;
+    }
+    body {
+        background-color:#171d3d;
+        font-size:16pt;
+        font-family: Arial;
+        color:#FFF;
+        margin:0pt;
+    }
+    header {
+        width:80%;
+        margin-top:6px;
+        margin:auto;
+        background-color:black;
+      
+    }
+    nav p::first-letter {
+        color:red;
+    }
+    input {
+        box-shadow: 0px 0px 4px red;
+    }
+    select {
+        box-shadow: 0px 0px 4px red;
+    }
+    button{
+        background-color:black;
+        font-size:15pt;
+        border-bottom: 4px darkred solid;
+        border-right: 4px darkred solid;
+        border-left: 2px red solid;
+        border-top: 2px red solid;
+        color:white;
+        font-weight:bold;
+        margin-left:6px;
+        margin-top: 0px;
+        display:inline;
+    }
+    table img {
+        margin-top:4px;
+    }
+    table {
+        margin:auto;
+        width:80%;
+        text-align: center;
+    }
+    table th {
+        text-align: center;
+        background-color:black;
+    }
+    a {
+        display:inline-block;
+    }
+    a:link {
+        color: #FFF;
+        font-weight:bold;
+        
+    }
+    a:visited {
+        color: red;
+    }
+
+    /* mouse over link */
+    a:hover{
+        color:red;
+    }
+
+    /* selected link */
+    a:active {
+        color: #0000FF;
+    }
+    span {
+        font-weight: bold;
+    }
+    fieldset {
+        border: 0px;
+    }
+    .report {
+        bottom:0;
+        padding:10px;
+        position:fixed;
+        background-color:black;
+    }
+    .form {
+        display:inline-block;
+        margin:auto;
+    }
+    nav p {
+        margin:0;
+        padding:0;
+        font-size:42px;
+        font-family:Gate;
+        text-shadow:0px 0px 10px darkred;
+    }
+    p {
+        font-family:Gate;
+    }
+    .form select {
+        width:186px;
+        text-align: center;
+        margin-bottom:5px;
+        border:0px;
+    }
+    .form input {
+        width:180px;
+        text-align: center;
+        background-color:black;
+        color:white;
+        font-size:16pt;
+        margin-bottom:5px;
+        border:0px;
+    }
+    .loc {
+         font-size:10pt;    }
+    .loc option {
+        font-size:10pt;
+    }
+    .stats {
+        height:30px;
+        width:150px;
+        background-color: #0d0d0d;
+        text-align: center;
+        position: fixed;
+        bottom:0;
+        right:0;
+    }
+    nav button {
+        margin-top:5px;
+    }
+</style>
+<title>ChainShift - It searches. Forever IMMORTALIZE.</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-38586543-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body ng-controller='uniController'>
+<nav id='filt'>
+<a href='statistics.html' target='_blank'>Statistics</a>
+<form>
+
+    <fieldset>
+        <p>SEARCH </p><p>FILTER </p>
+        <div class='form'>
+          <select name='char1' id='c1' ng-model='c1' placeholder='Character' width='80'>  
+                    <option selected value='any'>Character</option>
+                    <option value='Akatsuki'>Akatsuki</option>
+                    <option value='Byakuya'>Byakuya</option>
+                    <option value='Carmine'>Carmine</option>
+                    <option value='Chaos'>Chaos</option>
+                    <option value='Eltnum'>Eltnum</option>
+                    <option value='Gordeau'>Gordeau</option>
+                        <option value='Hilda'>Hilda</option>
+                        <option value='Hyde'>Hyde</option>
+                        <option value='Linne'>Linne</option>
+                        <option value='Nanase'>Nanase</option>
+                        <option value='Merkava'>Merkava</option>
+                        <option value='Orie'>Orie</option>
+                        <option value='Phonon'>Phonon</option>
+                        <option value='Seth'>Seth</option>
+                        <option value='Vatista'>Vatista</option>
+                        <option value='Waldstein'>Waldstein</option>
+                        <option value='Yuzu'>Yuzuriha</option>
+
+            </select>
+            <br />
+            <input type='number' placeholder='Min. RIP' step='0.1' min='0' ng-model='g1'/>
+            <br />
+            <input type='text' placeholder='Player' ng-model='p1'/>
+            <br />
+        </div>
+        <div class='form' id='vs'>
+        <select ng-model='winner'>
+            <option value='0' selected>Winner</option>
+            <option value='1'>1st slot</option>
+            <option value='2'>2nd slot</option>
+            </select>
+            <br />
+        <select class='loc' ng-model='locale'>
+            <option selected value='any'>Local / Arcade</option>
+            <option ng-repeat="arcade in arcades track by $index" value='{{arcade.local}}'>{{arcade.local}}</option>
+        </select>
+             <br /></div>
+        <div class='form'>
+        <select name='char1' id='c2' ng-model='c2' placeholder='Character'>  
+                    <option selected value='any'>Character</option>
+                    <option value='Akatsuki'>Akatsuki</option>
+                    <option value='Byakuya'>Byakuya</option>
+                    <option value='Carmine'>Carmine</option>
+                    <option value='Chaos'>Chaos</option>
+                    <option value='Eltnum'>Eltnum</option>
+                    <option value='Gordeau'>Gordeau</option>
+                        <option value='Hilda'>Hilda</option>
+                        <option value='Hyde'>Hyde</option>
+                        <option value='Linne'>Linne</option>
+                        <option value='Nanase'>Nanase</option>
+                        <option value='Merkava'>Merkava</option>
+                        <option value='Orie'>Orie</option>
+                        <option value='Phonon'>Phonon</option>
+                        <option value='Seth'>Seth</option>
+                        <option value='Vatista'>Vatista</option>
+                        <option value='Waldstein'>Waldstein</option>
+                        <option value='Yuzu'>Yuzuriha</option>
+        </select>
+        <br />
+        <input type='number' placeholder='Min. RIP' step='0.1' min='0' ng-model='g2'/>
+        <br />
+        <input type='text' placeholder='Player' ng-model='p2'/>
+        <br />
+        </div>
+        <br/>
+        <select ng-model='vers'>
+            <option selected value="0">Version</option>
+            <option value='1'>UNIEL</option>
+            <option value='2'>UNIst</option>
+        </select>
+        <br/>
+        
+
+        <button ng-click='loadMatches()'>Search</button>
+        <button ng-click='resetFilters()'>Reset</button>
+        </fieldset>
+</form>
+</nav>
+
+<div class="container" infinite-scroll="loadNext()" infinite-scroll-distance="0" infinite-scroll-disabled='infscroll' infinite-scroll-immediate-check='true'>
+    <div ng-view></div>
+</div>
+<div class='stats'>
+    <a href='#filt'>Back To Top </a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<script type='text/javascript' src='ng-infinitescroll.js'></script>
+<script src="uniController.js"></script>
+
+</body>
+</html>

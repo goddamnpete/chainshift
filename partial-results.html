@@ -1,0 +1,98 @@
+<header>
+    <style>
+        .odd {
+            background-color:#442556;
+        }
+        .even {
+            background-color:#5A3A6C;
+        }
+        .oddst {
+            background-color:#15064F;
+        }
+        .evenst {
+            background-color: #0C0231;
+        }
+        .close {
+            float:right;
+        }
+        form a {
+            float:right;
+            color:white;
+            margin:5px;
+        }
+        form a:visited{
+            color:white;
+        }
+        @keyframes repot {
+            0% {background-color:inherit;}
+            50% {background-color:red;}
+            100% {background-color:inherit;}
+        }
+        .reported {
+            animation-name: repot;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+        @keyframes lastseen {
+            0% {opacity: 1;}
+            50% {opacity: 0.5;}
+            100% {opacity: 1;}
+        }
+        .watching {
+            animation-name: lastseen;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+        table tr:hover {
+            background-color:#300138;
+        }
+        .st {
+            margin-right:10px;
+            font-weight: normal;
+            text-shadow: 0px 0px 4px red;
+        }
+    </style>
+</header>
+
+<div class='report animate-show' ng-show='reportup' ng-animate="'box'">
+    <button class='buttonstyle close' ng-click='reportup = false; repMID = -1;'>X</button>
+    <form ng-submit='submitReport()'>
+        
+        <p>What's wrong with the match info?</p>
+        <input type='text' size='50' ng-model='reason' />
+        <input type='submit' value='Submit' />
+    </br>
+        {{reportresponse}}
+    </form>
+</div>
+<div>
+<table>
+
+    <thead>
+        <th ng-click="predicate = 'date'; reverse=!reverse">Date</th>
+        <th ng-click="predicate = 'player1'; reverse=!reverse">Player1</th>
+        <th ng-click="predicate = 'RIP1'; reverse=!reverse">RIP</th>
+        <th ng-click="predicate = 'player2'; reverse=!reverse">Player2</th>
+        <th ng-click="predicate = 'RIP2'; reverse=!reverse">RIP</th>
+        <th>Match Up</th>
+        <th>Link</th>
+        <th>Report</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat='dbresult in dbresults | orderBy:predicate:reverse'   ng-class="{'reported': repMID == dbresult.matchid, 'watching': watching == dbresult.matchid, 'odd': $index%2 == 1 && dbresult.version == 1, 'even': $index%2 == 0 && dbresult.version == 1, 'oddst': $index%2 == 1 && dbresult.version == 2, 'evenst': $index%2 == 0 && dbresult.version == 2}">
+        <td>{{dbresult.date}}</td>
+        <td>{{dbresult.player1}}</td>
+        
+        <td>{{dbresult.RIP1 | number}}m</td>
+        <td>{{dbresult.player2}}</td>
+        <td>{{dbresult.RIP2 | number}}m</td>
+        <td> <span class='st' ng-show='dbresult.version==2'>[st]</span><img src='{{selectImg(dbresult.character1)}}' alt='{{dbresult.character1}}'></img> <img src='char/vs.png' alt='vs.' /> <img src='{{selectImg(dbresult.character2)}}' alt='{{dbresult.character2}}'></img></td>
+        
+        <td><a href='{{dbresult.link}}' target="_blank" ng-click='logWatch(dbresult.matchid)'>Watch</a></td>
+        <td><a href="" ng-click="reportMatch(dbresult.matchid)"><img src='char/reportnew.png'></img></a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
